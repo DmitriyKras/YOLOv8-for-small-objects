@@ -52,13 +52,13 @@ The models described above were trained on NVIDIA GeForce RTX 3060 for 1000 epoc
 
 The table below shows results on the VisDrone-DET-val dataset.
 
-| Model                                                     | mAP50   | mAP50-95 | Number of parameters |
-| --------                                                  | :-----: | :------: | :------------------: |
-| Baseline (YOLOv8n)                                        | 0.349   | 0.203    | 3.001M               |
-| Baseline + P2                                             | 0.366   | 0.216    | 1.737M               |
-| Baseline + P2 – P5                                        | 0.364   | 0.219    | 1.379M               |
-| Baseline + P2 – P5 + bi-directional feature fusion        | 0.364   | 0.219    | 1.461M               |
-| Baseline + P2 – P5 + bi-directional feature fusion + CBAM | 0.398   | 0.241    | 1.542M               |
+| Model                                                     | mAP50   | mAP50-95 | Number of parameters | Weights |
+| --------                                                  | :-----: | :------: | :------------------: | ------- |
+| Baseline (YOLOv8n)                                        | 0.349   | 0.203    | 3.001M               | [link](https://drive.google.com/file/d/188Wgp5tGGnmmaDP-J9C20gh8taauxX12/view?usp=sharing) |
+| Baseline + P2                                             | 0.366   | 0.216    | 1.737M               | [link](https://drive.google.com/file/d/1e5iVQoKbI6C1AQPIQN4uOeQJrtb0A9pW/view?usp=sharing) |
+| Baseline + P2 – P5                                        | 0.364   | 0.219    | 1.379M               | [link](https://drive.google.com/file/d/1Za6zRlKpeCx1KbDnT2xEAF3kGCmh2Trn/view?usp=sharing) |
+| Baseline + P2 – P5 + bi-directional feature fusion        | 0.364   | 0.219    | 1.461M               | [link](https://drive.google.com/file/d/15SYiEF58HBiJ2djZyiOY0uroG7cdpvM0/view?usp=sharing) |
+| Baseline + P2 – P5 + bi-directional feature fusion + CBAM | 0.398   | 0.241    | 1.542M               | [link](https://drive.google.com/file/d/1pt2wfe24ZGJz730o2hHgYuWX0cO_LBA7/view?usp=sharing) |
 
 
 ### Test
