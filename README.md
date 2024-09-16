@@ -49,7 +49,7 @@ The models described above were trained on NVIDIA GeForce RTX 3060 for 1000 epoc
 The table below shows results on the VisDrone-DET-val dataset.
 
 | Model                                                     | mAP50   | mAP50-95 | Number of parameters |
-| --------                                                  | ------- | -------- | -------------------- |
+| --------                                                  | :-----: | :------: | :------------------: |
 | Baseline (YOLOv8n)                                        | 0.349   | 0.203    | 3.001M               |
 | Baseline + P2                                             | 0.366   | 0.216    | 1.737M               |
 | Baseline + P2 – P5                                        | 0.364   | 0.219    | 1.379M               |
@@ -62,9 +62,27 @@ The table below shows results on the VisDrone-DET-val dataset.
 The table below shows results on the VisDrone-DET-test dataset.
 
 | Model                                                     | mAP50   | mAP50-95 | Number of parameters |
-| --------                                                  | ------- | -------- | -------------------- |
-| Baseline (YOLOv8n)                                        | 0.349   | 0.203    | 3.001M               |
-| Baseline + P2                                             | 0.366   | 0.216    | 1.737M               |
-| Baseline + P2 – P5                                        | 0.364   | 0.219    | 1.379M               |
-| Baseline + P2 – P5 + bi-directional feature fusion        | 0.364   | 0.219    | 1.461M               |
-| Baseline + P2 – P5 + bi-directional feature fusion + CBAM | 0.398   | 0.241    | 1.542M               |
+| --------                                                  | :-----: | :------: | :------------------: |
+| Baseline (YOLOv8n)                                        | 0.275   | 0.154    | 3.001M               |
+| Baseline + P2                                             | 0.287   | 0.161    | 1.737M               |
+| Baseline + P2 – P5                                        | 0.295   | 0.171    | 1.379M               |
+| Baseline + P2 – P5 + bi-directional feature fusion        | 0.301   | 0.171    | 1.461M               |
+| Baseline + P2 – P5 + bi-directional feature fusion + CBAM | 0.322   | 0.184    | 1.542M               |
+
+### Perfomance
+
+The table below shows inference speed results on the Jetson Nano.
+
+| Model | Inference, ms | Post-process, ms |
+| ---- | :------------:| :-------------: |
+| Baseline (YOLOv8n) | 31.8 | 3.4 |
+| Baseline + P2 – P5 + bi-directional feature fusion + CBAM | 60.6 | 8.3 |
+
+Note that improved model is slower than baseline. Therefore there exists a trade-off between precision and speed (as always).
+
+## Installation and use
+
+### Insights about customizing ultralytics layers
+
+
+
