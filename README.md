@@ -106,3 +106,20 @@ from ultralytics import YOLO
 yolo = YOLO(model='model_configs/yolov8-p2_woP5.yaml')
 yolo.train(data='ultralytics/cfg/datasets/VisDrone.yaml', epochs=1000, patience=150, batch=2, save_period=200)
 ```
+
+### TensorRT inference
+
+Export model in .onnx with simplify flag.
+
+```
+from ultralytics import YOLO
+
+yolo = YOLO(model='path/to/best.pt')
+yolo.export(format='onnx', imgsz=(384, 640), simplify=True)
+```
+
+Run `jetson/onnx2trt.py` to export in TensorRT (RUN IT ON TARGET PLATFORM, e.g. Jetson Nano)
+
+`python3 onnx2trt.py -v --onnx-file <path to onnx file> --img <size of input image: width height, e.g. 640 384>`
+
+Customize and run `jetson/inference.py`
