@@ -4,7 +4,7 @@ This repository contains implementation for Dmitrii I. Krasnov, Sergey N. Yarish
 ## Abstract
 This project is an implementation of the experimantal adaptation pipeline for object detection and semantic segmentation models. 
 This pipeline specifically designed to improve model's architecture in order to adapt it to small objects.
-`model_configs` contains set of .yaml configs for model building that were used in the experiment. `jetson` contains scripts for converting .onnx model (can be exported in default ultralytics way) to TensorRT egnine file and inference on Jetson Nano.
+`model_configs` contains set of .yaml configs for model building that were used in the experiment. `jetson` contains scripts for converting .onnx model (can be exported in default ultralytics way) to TensorRT egnine file and inference on Jetson Nano. AGPL-3.0 license is used since my project includes original ultralytics repo with this license type.
 
 ## Steps
 
@@ -33,6 +33,10 @@ A main building block of YOLOv8 C2f was enhanced with CBAM attention module. Thi
 Final improved YOLOv8 architecture is shown below. Numbers of channels are actual for nano scale.
 
 ![Final](/assets/arch.png)
+
+Predictions example on the VisDrone-DET-test samples.
+
+![Examples](/assets/predictions.png)
 
 ## Results
 
@@ -84,5 +88,21 @@ Note that improved model is slower than baseline. Therefore there exists a trade
 
 ### Insights about customizing ultralytics layers
 
+Customizing ultralytics model is not as difficult as is seems. All changes to backbone which do not have influence on the training process can be easily performed with steps below.
 
+1. Write your torch.nn.Module and implement forward pass in `ultralytics/nn/modules/block.py` (look at this file in the repo for example). Add it to `ultralytics/nn/modules/__init__.py` as well.
 
+2. Import your custom block in `ultralytics/nn/tasks.py` and then write it's logic in **parse_model** function in `ultralytics/nn/tasks.py` (look at this file in the repo for example).
+
+3. Customize model's .yaml config with your new custom block. See `model_configs` for examples.
+
+### Use
+
+Just clone this repo and train model as regular ultralytics model since main backend is not changed.
+
+```
+from ultralytics import YOLO
+
+yolo = YOLO(model='model_configs/yolov8-p2_woP5.yaml')
+yolo.train(data='ultralytics/cfg/datasets/VisDrone.yaml', epochs=1000, patience=150, batch=2, save_period=200)
+```
