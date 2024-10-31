@@ -1,5 +1,5 @@
 # YOLOv8-for-small-objects
-This repository contains implementation for Dmitrii I. Krasnov, Sergey N. Yarishev, Victoria A. Ryzhova,  Todor S. Djamiykov paper **"Improved YOLOv8 Network for Small Objects Detection"** (link to publication is coming soon). Repo is a modification of original [Ultralytics](https://github.com/ultralytics/ultralytics) so `ultralytics` folder remains unchanged (almost).
+This repository contains implementation for Dmitrii I. Krasnov, Sergey N. Yarishev, Victoria A. Ryzhova,  Todor S. Djamiykov paper **"Improved YOLOv8 Network for Small Objects Detection"** ((link)[https://ieeexplore.ieee.org/document/10721517]). Repo is a modification of original [Ultralytics](https://github.com/ultralytics/ultralytics) so `ultralytics` folder remains unchanged (almost).
 
 ## Abstract
 This project is an implementation of the experimantal adaptation pipeline for object detection and semantic segmentation models. 
